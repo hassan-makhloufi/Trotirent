@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="white-background" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ChangePasswordController">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="white-background" stylesheets="@../css/styles.css" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefHeight="60.0" prefWidth="143.0" text="Trottirent">
+                    <font>
+                        <Font name="Calibri" size="24.0" />
+                    </font>
+                    <textFill>
+                        <RadialGradient centerX="0.4277777777777778" centerY="0.5666666666666667" radius="0.5">
+                            <stops>
+                                <Stop color="#000000ea" />
+                                <Stop color="#191246eb" offset="1.0" />
+                            </stops>
+                        </RadialGradient>
+                    </textFill>
+                </Label>
+                <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="43.0" prefWidth="4.0" />
+                <HBox maxHeight="-Infinity" prefHeight="38.0" prefWidth="290.0">
+                    <children>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="290.0" styleClass="round-layout" stylesheets="@../css/styles.css">
+                            <children>
+                                <TextField prefHeight="25.0" prefWidth="247.0" promptText="Search" styleClass="transparent" stylesheets="@../css/styles.css" />
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/téléchargement.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="202.0">
+                    <children>
+                        <Label fx:id="UserFirstName" prefHeight="35.0" prefWidth="154.0" />
+                        <ImageView fx:id="UserProfilePicutre" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets left="15.0" right="15.0" />
+            </padding>
+        </HBox>
+    </top>
+    <left>
+        <VBox fx:id="vBoxMenu" prefHeight="683.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+            <stylesheets>
+                <URL value="@Styles/style.css" />
+                <URL value="@Styles/style.css" />
+            </stylesheets>
+            <children>
+                <VBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="261.0" prefWidth="180.0" spacing="10.0">
+                    <children>
+                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
+                            <children>
+                                <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/images.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="N_RESIZE" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
+                            <children>
+                                <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/376461.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="N_RESIZE" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="195.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
+                            <children>
+                                <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/istockphoto-875070700-170667a.jpg" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="N_RESIZE" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
+                            <children>
+                                <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/téléchargement%20(1).png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="N_RESIZE" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
+                            <children>
+                                <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/téléchargement.jpg" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="N_RESIZE" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
+                            <children>
+                                <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../icons/pngtree-vector-logout-icon-png-image_939706.jpg" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="N_RESIZE" />
+                                    </cursor>
+                                </ImageView>
+                                <Label prefHeight="17.0" prefWidth="103.0" text="Log out" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+    <right>
+        <VBox prefHeight="200.0" prefWidth="20.0" styleClass="white-background" stylesheets="@../css/styles.css" BorderPane.alignment="CENTER" />
+    </right>
+    <center>
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1734.0" style="-fx-background-color: #f1f4f7;" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <AnchorPane layoutX="2.0" prefHeight="130.0" prefWidth="1738.0" style="-fx-background-color: #679db2;">
+                    <children>
+                        <Hyperlink layoutX="107.0" layoutY="47.0" onAction="#LinkToProfile" text="Profile" textFill="WHITE">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Hyperlink>
+                        <ImageView fitHeight="56.0" fitWidth="42.0" layoutX="57.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8-user-100.png" />
+                            </image>
+                        </ImageView>
+                        <Hyperlink layoutX="701.0" layoutY="46.0" onAction="#LinkToChangePassword" text="Mot de passe" textFill="WHITE">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Hyperlink>
+                        <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="658.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8-key-100.png" />
+                            </image>
+                        </ImageView>
+                        <Hyperlink layoutX="1422.0" layoutY="46.0" onAction="#LinkToConditions" style="-fx-border-color: #000000; -fx-border-width: 0 0 1 0;" text="Conditions" textFill="WHITE">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Hyperlink>
+                        <ImageView fitHeight="50.0" fitWidth="36.0" layoutX="1384.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/icons8-lock-100.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+                <Text layoutX="279.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue sur Trottirent!Ces termes et conditions décrivent les règles et règlements pour l'utilisation de l'application  Trottirent accédant à cette application, nous supposons que vous acceptez ces termes et conditions. Ne continuez pas à utiliser Trottirent si vous n'acceptez pas de prendre tous les termes et conditions énoncés sur cette page.La terminologie suivante s'applique aux présentes conditions générales, à la déclaration de confidentialité et à l'avis de non-responsabilité et à tous les accords : &quot;Client&quot;, &quot;Vous&quot; et &quot;Votre&quot; font référence à vous, la personne qui se connecte sur cette application et qui se conforme aux conditions générales de la Société. « Trottirent », « Nous-mêmes », « Nous », « Notre » et « Nous » font référence à notre Société. « Partie », « Parties » ou « Nous » désignent à la fois le client et nous-mêmes. Tous les termes se réfèrent à l'offre, à l'acceptation et à la considération du paiement nécessaire pour entreprendre le processus de notre assistance au Client de la manière la plus appropriée dans le but exprès de répondre aux besoins du Client en ce qui concerne la fourniture des services déclarés de la Société, conformément à et sous réserve de la législation en vigueur aux Pays-Bas. Toute utilisation de la terminologie ci-dessus ou d'autres mots au singulier, au pluriel, en majuscules et/ou il/elle ou ils, sont considérés comme interchangeables et donc comme faisant référence à ceux-ci." wrappingWidth="1109.890625">
+                    <font>
+                        <Font name="Consolas" size="23.0" />
+                    </font>
+                </Text>
+            <Text layoutX="204.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-underline: true;" text="Termes et conditions">
+               <font>
+                  <Font size="51.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="64.0" fitWidth="80.0" layoutX="124.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8-terms-and-conditions-100.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

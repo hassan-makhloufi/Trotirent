@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="trotirent.jnlp">
+  <information>
+    <title>trotirent</title>
+    <vendor>Admin</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23.jar" size="843090" download="eager" />
+    <jar href="trotirent.jar" size="406142" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="trotirent" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="trotirent.Trotirent"  name="trotirent" />
+  <update check="always"/>
+</jnlp>

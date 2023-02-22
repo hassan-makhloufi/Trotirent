@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
+    <AnchorPane prefHeight="1080.0" prefWidth="705.0" style="-fx-background-color: #323741;" BorderPane.alignment="CENTER">
+        <children>
+            <ImageView fitHeight="562.0" fitWidth="817.0" layoutX="-72.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/App%20logo.png" />
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="811.0" layoutY="62.0" prefHeight="1274.0" prefWidth="1208.0" BorderPane.alignment="CENTER">
+        <children>
+            <TextField fx:id="emailField" layoutX="145.0" layoutY="211.0" prefHeight="75.0" prefWidth="663.0" promptText="Email" style="-fx-border-color: #000000; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;">
+            <font>
+               <Font size="26.0" />
+            </font></TextField>
+            <PasswordField fx:id="passwordField" layoutX="144.0" layoutY="394.0" prefHeight="58.0" prefWidth="672.0" promptText="Mot de passe" style="-fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;">
+            <font>
+               <Font size="26.0" />
+            </font></PasswordField>
+            <Button fx:id="loginbutton" layoutX="402.0" layoutY="575.0" mnemonicParsing="false" onAction="#loginuser" style="-fx-background-color: #02a8b9;" text=" Se connecter" textFill="WHITE">
+                <font>
+                    <Font size="32.0" />
+                </font>
+            </Button>
+            <Hyperlink fx:id="ForgotPassword" layoutX="93.0" layoutY="724.0" onAction="#LinkToResetPassword" text="Mot de passe oublié">
+            <font>
+               <Font size="29.0" />
+            </font></Hyperlink>
+         <Hyperlink fx:id="CreateAnAccount" layoutX="561.0" layoutY="724.0" onAction="#LinkToCreateAnAccount" text="Nouveau membre? créer un compte">
+            <font>
+               <Font size="29.0" />
+            </font>
+         </Hyperlink>
+        </children>
+    </AnchorPane>
+</AnchorPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SignupController">
+    <AnchorPane prefHeight="1080.0" prefWidth="729.0" style="-fx-background-color: #323741;" BorderPane.alignment="CENTER">
+        <children>
+            <ImageView fitHeight="379.0" fitWidth="601.0" layoutX="57.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/App%20logo.png" />
+                </image>
+            </ImageView>
+        </children>
+    </AnchorPane>
+    <Hyperlink fx:id="linktoLogin" layoutX="1205.0" layoutY="1003.0" onAction="#linkToLoginPage" prefHeight="34.0" prefWidth="213.0" text="Vous avez déjà un compte? connexion" />
+    <TextField fx:id="emailField" layoutX="1020.0" layoutY="23.0" prefHeight="83.0" prefWidth="571.0" promptText="Email" style="-fx-border-color: #000000; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+    <TextField fx:id="fnameField" layoutX="1020.0" layoutY="168.0" prefHeight="61.0" prefWidth="571.0" promptText="Nom" style="-fx-border-color: #000000; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+    <TextField fx:id="lnameField" layoutX="1016.0" layoutY="290.0" prefHeight="69.0" prefWidth="571.0" promptText="Prénom" style="-fx-border-color: #000000; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+    <PasswordField fx:id="passwordField" layoutX="1013.0" layoutY="419.0" prefHeight="46.0" prefWidth="571.0" promptText=" Mot de passe" style="-fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+    <ComboBox fx:id="roleCombo" layoutX="1026.0" layoutY="745.0" prefHeight="35.0" prefWidth="179.0" promptText="Role" />
+    <TextField fx:id="pnField" layoutX="1203.0" layoutY="608.0" prefHeight="62.0" prefWidth="386.0" promptText="Numéro de téléphone" style="-fx-border-color: #000000; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+    <Button fx:id="signupbutton" layoutX="1232.0" layoutY="935.0" mnemonicParsing="false" onAction="#signupuser" prefHeight="46.0" prefWidth="127.0" style="-fx-background-color: #02a8b9;" text="S'inscrire" textFill="WHITE">
+        <font>
+            <Font size="16.0" />
+        </font>
+    </Button>
+    <TextField fx:id="ccField" layoutX="1015.0" layoutY="608.0" prefHeight="62.0" prefWidth="178.0" promptText="Code pays" style="-fx-border-color: #000000; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+    <Button layoutX="1367.0" layoutY="744.0" mnemonicParsing="false" onAction="#uploadpic" prefHeight="35.0" prefWidth="213.0" text="Ajouter photo de profile" />
+   <TextField fx:id="captchaField" layoutX="1336.0" layoutY="823.0" prefHeight="55.0" prefWidth="252.0" promptText="Code Captcha" style="-fx-border-color: #000000; -fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px;" />
+   <ImageView fitHeight="77.0" fitWidth="237.0" layoutX="1006.0" layoutY="817.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/captcha.png" />
+      </image>
+   </ImageView>
+   <Label fx:id="CaptchaCode" layoutX="1038.0" layoutY="826.0" prefHeight="47.0" prefWidth="213.0" text="CaptchaCode" textFill="#2a00f8">
+      <font>
+         <Font size="32.0" />
+      </font>
+   </Label>
+   <ImageView fitHeight="49.0" fitWidth="41.0" layoutX="1255.0" layoutY="824.0" onMouseClicked="#ChangeCode" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/icons8-refresh-100.png" />
+      </image>
+   </ImageView>
+   <PasswordField fx:id="confirmpasswordField" layoutX="1011.0" layoutY="518.0" prefHeight="46.0" prefWidth="571.0" promptText="Confirmer mot de passe" style="-fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+</AnchorPane>
