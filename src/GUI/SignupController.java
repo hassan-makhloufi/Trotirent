@@ -157,7 +157,7 @@ public class SignupController implements Initializable {
         } else if (!captchaField.getText().equals(SignupController.GeneratedCode)) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("null");
-            alert.setContentText("CaptchaCodes incorrecte");
+            alert.setContentText("CaptchaCodes incorrectes");
             alert.showAndWait();
 
         } else if (!pass.equals(cpass)) {
