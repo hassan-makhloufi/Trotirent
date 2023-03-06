@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="bg-form" stylesheets="@login%20desin.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReservationCRUDController">
+   <children>
+      <TableView fx:id="table" layoutX="102.0" layoutY="89.0" prefHeight="202.0" prefWidth="395.0">
+        <columns>
+          <TableColumn fx:id="res" prefWidth="140.79998779296875" text="idReservation" />
+          <TableColumn fx:id="ev" prefWidth="111.20001220703125" text="Event" />
+            <TableColumn fx:id="us" minWidth="0.0" prefWidth="140.00006103515625" text="User" />
+        </columns>
+         <effect>
+            <ColorAdjust />
+         </effect>
+      </TableView>
+      <Button layoutX="116.0" layoutY="341.0" mnemonicParsing="false" onAction="#Supp_Res" prefHeight="26.0" prefWidth="191.0" styleClass="login-btn" stylesheets="@login%20desin.css" text="            Supprimer Reservation" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Hyperlink layoutX="423.0" layoutY="343.0" onAction="#GoToStatistique" prefHeight="22.0" prefWidth="82.0" text="Statistique" />
+      <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="378.0" layoutY="337.0">
+         <image>
+            <Image url="@../photos/analytics.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="127.0" layoutY="341.0">
+         <image>
+            <Image url="@../photos/bin.png" />
+         </image>
+      </ImageView>
+      <Text fill="#f2eaea" layoutX="135.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des réservations" wrappingWidth="329.47076416015625">
+         <font>
+            <Font name="Snap ITC" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

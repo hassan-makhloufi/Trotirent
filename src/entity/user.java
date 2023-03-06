@@ -1,144 +1,129 @@
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package entity;
 
 /**
  *
- * @author Admin
+ * @author sassi
  */
-public class user {
-
-    private int id;
-    private String password;
+public class User {
+    private int idUser;
+    private String nomUser;
+    private String prenomUser;
+    private String pwd;
     private String email;
-    private String roles;
-    private boolean isVerfied;
-    private String firstname;
-    private String lastname;
-    private int phonenumber;
-    private String profile_picture;
-    private boolean isbanned;
-    private String country_code;
+    private int numTel;
+    private String typeUser;
+    private String photo;
 
-    public user() {
+    public User(int idUser) {
+        this.idUser = idUser;
     }
 
-    public user(int id, String password, String email, String roles, boolean isVerfied, String firstname, String lastname, int phonenumber, String profile_picture, boolean isbanned, String country_code) {
-        this.id = id;
-        this.password = password;
+    public User(int idUser, String nomUser) {
+        this.idUser = idUser;
+        this.nomUser = nomUser;
+    }
+
+    public User(int idUser, String nomUser, String prenomUser) {
+        this.idUser = idUser;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+    }
+
+    public User(int idUser, String nomUser, String prenomUser, String pwd, String email, int numTel, String typeUser, String photo) {
+        this.idUser = idUser;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.pwd = pwd;
         this.email = email;
-        this.roles = roles;
-        this.isVerfied = isVerfied;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phonenumber = phonenumber;
-        this.profile_picture = profile_picture;
-        this.isbanned = isbanned;
-        this.country_code = country_code;
+        this.numTel = numTel;
+        this.typeUser = typeUser;
+        this.photo = photo;
     }
 
-    public user(String password, String email, String roles, boolean isVerfied, String firstname, String lastname, int phonenumber, String profile_picture, boolean isbanned, String country_code) {
-        this.password = password;
+    public User(String nomUser, String prenomUser, String pwd, String email, int numTel, String typeUser, String photo) {
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.pwd = pwd;
         this.email = email;
-        this.roles = roles;
-        this.isVerfied = isVerfied;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phonenumber = phonenumber;
-        this.profile_picture = profile_picture;
-        this.isbanned = isbanned;
-        this.country_code = country_code;
+        this.numTel = numTel;
+        this.typeUser = typeUser;
+        this.photo = photo;
     }
 
-    public int getId() {
-        return id;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getNomUser() {
+        return nomUser;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPrenomUser() {
+        return prenomUser;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getPwd() {
+        return pwd;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public int getNumTel() {
+        return numTel;
+    }
+
+    public String getTypeUser() {
+        return typeUser;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public void setNomUser(String nomUser) {
+        this.nomUser = nomUser;
+    }
+
+    public void setPrenomUser(String prenomUser) {
+        this.prenomUser = prenomUser;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getRoles() {
-        return roles;
+    public void setNumTel(int numTel) {
+        this.numTel = numTel;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public void setTypeUser(String typeUser) {
+        this.typeUser = typeUser;
     }
 
-    public boolean isIsVerfied() {
-        return isVerfied;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    public void setIsVerfied(boolean isVerfied) {
-        this.isVerfied = isVerfied;
+    @Override
+    public String toString() {
+        return "User{" + "idUser=" + idUser + ", nomUser=" + nomUser + ", prenomUser=" + prenomUser + ", pwd=" + pwd + ", email=" + email + ", numTel=" + numTel + ", typeUser=" + typeUser + ", photo=" + photo + '}';
     }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public int getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(int phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public String getProfile_picture() {
-        return profile_picture;
-    }
-
-    public void setProfile_picture(String profile_picture) {
-        this.profile_picture = profile_picture;
-    }
-
-    public boolean isIsbanned() {
-        return isbanned;
-    }
-
-    public void setIsbanned(boolean isbanned) {
-        this.isbanned = isbanned;
-    }
-
-    public String getCountry_code() {
-        return country_code;
-    }
-
-    public void setCountry_code(String country_code) {
-        this.country_code = country_code;
-    }
-
+    
+    
+    
+    
 }
