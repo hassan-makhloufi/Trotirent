@@ -74,6 +74,7 @@ public interface userInterface {
     public boolean isUserBanned(user user);
 
     public String CreateCaptchaValue();
+    public List<user> readIdNom();
 
 
 }

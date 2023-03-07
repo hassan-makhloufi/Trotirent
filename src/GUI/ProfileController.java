@@ -119,7 +119,7 @@ public class ProfileController implements Initializable {
 
     }
     public void LinkToUserList() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("usersliste.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("userslist.fxml"));
         Trotirent.primaryStage.setScene(new Scene(root));
         Trotirent.primaryStage.show();
 

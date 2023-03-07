@@ -52,6 +52,19 @@ public class user {
         this.isbanned = isbanned;
         this.country_code = country_code;
     }
+  public user(int id) {
+        this.id = id;
+    }
+    public user(int id, String lastname, String firstname) {
+        this.id = id;
+        this.lastname = lastname;
+        this.firstname = firstname;
+    }
+
+    public user(int id, String lastname) {
+        this.id = id;
+        this.lastname = lastname;
+    }
 
     public int getId() {
         return id;

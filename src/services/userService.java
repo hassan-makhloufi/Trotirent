@@ -724,7 +724,7 @@ public void createuser(user u) {
                 + "                                                    <tr>\n"
                 + "                                                        <td style=\"padding-right: 0px;padding-left: 0px;\" align=\"center\">\n"
                 + "\n"
-                + "                                                            <img align=\"center\" border=\"0\" src=\"https://s3.amazonaws.com/unroll-images-production/projects%2F0%2F1646598636496-App+logo.png\" alt=\"Image\" title=\"Image\" style=\"outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 37%;max-width: 214.6px;\" width=\"214.6\"/>\n"
+                + "                                                            <img src=\"https://i.ibb.co/5YwWRvK/604882604882.png\" alt=\"604882604882\" border=\"0\">\n"
                 + "\n"
                 + "                                                        </td>\n"
                 + "                                                    </tr>\n"
@@ -765,7 +765,7 @@ public void createuser(user u) {
                 + "                                                    <tr>\n"
                 + "                                                        <td style=\"padding-right: 0px;padding-left: 0px;\" align=\"center\">\n"
                 + "\n"
-                + "                                                            <img align=\"center\" border=\"0\" src=\"https://cdn.templates.unlayer.com/assets/1593141680866-reset.png\" alt=\"Image\" title=\"Image\" style=\"outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 10%;max-width: 58px;\" width=\"58\"/>\n"
+                + "                                                            <img align=\"center\" border=\"0\" src=\"\"https://i.ibb.co/5YwWRvK/604882604882.png\" alt=\"604882604882\" border=\"0\" alt=\"Image\" title=\"Image\" style=\"outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 10%;max-width: 58px;\" width=\"58\"/>\n"
                 + "\n"
                 + "                                                        </td>\n"
                 + "                                                    </tr>\n"
@@ -913,7 +913,7 @@ public void createuser(user u) {
                 + "                                            <td style=\"overflow-wrap:break-word;word-break:break-word;padding:5px 10px 10px;font-family:'Lato',sans-serif;\" align=\"left\">\n"
                 + "\n"
                 + "                                                <div style=\"line-height: 140%; text-align: left; word-wrap: break-word;\">\n"
-                + "                                                    <p style=\"line-height: 140%; font-size: 14px;\"><span style=\"font-size: 14px; line-height: 19.6px;\"><span style=\"color: #ecf0f1; font-size: 14px; line-height: 19.6px;\"><span style=\"line-height: 19.6px; font-size: 14px;\">Calometre &copy;&nbsp; Tous droits sont réservés</span></span></span></p>\n"
+                + "                                                    <p style=\"line-height: 140%; font-size: 14px;\"><span style=\"font-size: 14px; line-height: 19.6px;\"><span style=\"color: #ecf0f1; font-size: 14px; line-height: 19.6px;\"><span style=\"line-height: 19.6px; font-size: 14px;\">Trotirent &copy;&nbsp; Tous droits sont réservés</span></span></span></p>\n"
                 + "                                                </div>\n"
                 + "\n"
                 + "                                            </td>\n"
@@ -1073,4 +1073,23 @@ public void createuser(user u) {
         }
         return isBanned;
     }
-}
+
+    @Override
+    public List<user> readIdNom() {
+           String requete="select id,lastname from user";
+        List<user> list=new ArrayList<>();
+        
+        try {
+            Statement st=cnx.createStatement();
+            ResultSet rs=st.executeQuery(requete);
+            while(rs.next()){
+                user p=new user(rs.getInt("id"),rs.getString("lastname") );
+                list.add(p);
+            }
+        } catch (SQLException e) {
+            
+        }
+        return list;
+        
+   }
+    }
