@@ -23,7 +23,7 @@ public class Trotirent extends Application{
     public void start(Stage primaryStage) throws Exception{
         // Create your JavaFX scene here
        Trotirent.primaryStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ReadEvent.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/login.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();

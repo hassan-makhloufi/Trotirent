@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LocationEventController">
+<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LocationEventController">
    <children>
       <GoogleMapView fx:id="gmap" layoutX="97.0" layoutY="53.0" prefHeight="402.0" prefWidth="647.0" />
       <TextField fx:id="o" layoutX="97.0" layoutY="19.0" />

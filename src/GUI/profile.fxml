@@ -76,6 +76,7 @@
                     <children>
                         <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
                             <children>
+                        <Label onMouseClicked="#Reservation" prefHeight="17.0" prefWidth="103.0" text="Reservation" />
                                 <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../icons/images.png" />
@@ -136,6 +137,7 @@
                         </HBox>
                         <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
                             <children>
+                        <Label onMouseClicked="#logout" prefHeight="18.0" prefWidth="180.0" text="Log out" />
                                 <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../icons/823060.png" />
@@ -156,7 +158,6 @@
                                         <Cursor fx:constant="N_RESIZE" />
                                     </cursor>
                                 </ImageView>
-                                <Label onMouseClicked="#logout" prefHeight="17.0" prefWidth="103.0" text="Log out" />
                             </children>
                         </HBox>
                     </children>

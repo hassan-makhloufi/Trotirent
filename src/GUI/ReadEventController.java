@@ -242,7 +242,7 @@ if (table.getSelectionModel().getSelectedItem() != null) {
            Document document = new Document();
          try {
             // Créer un écrivain PDF
-            PdfWriter.getInstance(document, new FileOutputStream("..\\TrottirentPro\\src\\DocumentContrat\\"+selectedEvent.getNomEvent()+"Contrat.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("..\\trotirent\\src\\DocumentContrat\\"+selectedEvent.getNomEvent()+"Contrat.pdf"));
 
             // Ouvrir le document
             document.open();
@@ -281,7 +281,7 @@ document.add(image);
             document.close();
 
             // Ouvrir le document PDF avec le lecteur de PDF par défaut
-            Desktop.getDesktop().open(new File("..\\TrottirentPro\\src\\DocumentContrat\\"+selectedEvent.getNomEvent()+"Contrat.pdf"));
+            Desktop.getDesktop().open(new File("..\\trotirent\\src\\DocumentContrat\\"+selectedEvent.getNomEvent()+"Contrat.pdf"));
         } catch (DocumentException | IOException ex) {
             Logger.getLogger(ReadEventController.class.getName()).log(Level.SEVERE, null, ex);
         }

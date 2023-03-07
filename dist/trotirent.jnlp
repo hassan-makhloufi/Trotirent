@@ -17,7 +17,7 @@
     <jar href="lib\pdfbox-app-3.0.0-alpha3.jar" size="10877250" download="eager" />
     <jar href="lib\slf4j-api-1.7.25.jar" size="41203" download="eager" />
     <jar href="lib\statistics-2.1.jar" size="164112" download="eager" />
-    <jar href="trotirent.jar" size="112184" download="eager" />
+    <jar href="trotirent.jar" size="112229" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="trotirent" >
     <param name="requiredFXVersion" value="8.0+"/>

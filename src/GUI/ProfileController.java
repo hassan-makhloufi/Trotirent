@@ -156,6 +156,14 @@ public class ProfileController implements Initializable {
         fn.logout();
 
     }
+    public void Reservation() throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("AccueilEvent.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+        fn.logout();
+
+    }
 
     public void UploadProfilePicture() throws IOException {
 
