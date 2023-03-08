@@ -20,9 +20,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="white-background" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #679db2;" styleClass="white-background" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProfileController">
     <top>
-        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="white-background" stylesheets="@../css/styles.css" BorderPane.alignment="CENTER">
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #679db2;" styleClass="white-background" stylesheets="@../css/styles.css" BorderPane.alignment="CENTER">
             <children>
                 <Label alignment="CENTER" prefHeight="60.0" prefWidth="143.0" text="Trottirent">
                     <font>
@@ -66,7 +66,7 @@
         </HBox>
     </top>
     <left>
-        <VBox fx:id="vBoxMenu" prefHeight="683.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+        <VBox fx:id="vBoxMenu" prefHeight="683.0" prefWidth="180.0" style="-fx-background-color: #679db2;" BorderPane.alignment="CENTER">
             <stylesheets>
                 <URL value="@Styles/style.css" />
                 <URL value="@Styles/style.css" />
@@ -74,9 +74,12 @@
             <children>
                 <VBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="261.0" prefWidth="180.0" spacing="10.0">
                     <children>
+                  <Label onMouseClicked="#ProfileProfile" prefHeight="17.0" prefWidth="103.0" text="Profile" />
+                  <Label onMouseClicked="#panier" prefHeight="17.0" prefWidth="103.0" text="Panier" />
+                  <Pane prefHeight="27.0" prefWidth="194.0" />
                         <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
                             <children>
-                        <Label onMouseClicked="#Reservation" prefHeight="17.0" prefWidth="103.0" text="Reservation" />
+                        <Label onMouseClicked="#Reservation" prefHeight="18.0" prefWidth="137.0" text="Reservation" />
                                 <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../icons/images.png" />
@@ -111,7 +114,7 @@
                                 </ImageView>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
+                        <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="40.0" prefWidth="180.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
                             <children>
                                 <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -137,7 +140,6 @@
                         </HBox>
                         <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
                             <children>
-                        <Label onMouseClicked="#logout" prefHeight="18.0" prefWidth="180.0" text="Log out" />
                                 <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../icons/823060.png" />
@@ -148,6 +150,7 @@
                                 </ImageView>
                             </children>
                         </HBox>
+                  <Label onMouseClicked="#logout" prefHeight="43.0" prefWidth="130.0" text="Log out" />
                         <HBox alignment="CENTER" onMouseClicked="#selectMenueItem" prefHeight="24.0" prefWidth="123.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@../css/styles.css">
                             <children>
                                 <ImageView fitHeight="24.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -160,15 +163,16 @@
                                 </ImageView>
                             </children>
                         </HBox>
+                  <Pane prefHeight="27.0" prefWidth="194.0" />
                     </children>
                 </VBox>
             </children>
         </VBox>
     </left>
    <right>
-        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1734.0" style="-fx-background-color: #f1f4f7;" BorderPane.alignment="CENTER">
+        <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1020.0" prefWidth="1734.0" style="-fx-background-color: linear-gradient(to top right,#0FC2C0,#015958);" BorderPane.alignment="CENTER">
             <children>
-                <AnchorPane layoutX="2.0" prefHeight="130.0" prefWidth="1738.0" style="-fx-background-color: #679db2;">
+                <AnchorPane layoutX="-4.0" prefHeight="130.0" prefWidth="1744.0" style="-fx-background-color: #679db2;">
                     <children>
                         <Hyperlink layoutX="107.0" layoutY="47.0" onAction="#LinkToChangePassword" style="-fx-border-color: #000000; -fx-border-width: 0 0 1 0;" text="Profile" textFill="WHITE">
                             <font>

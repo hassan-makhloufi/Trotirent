@@ -7,7 +7,9 @@ package GUI;
 import entity.user;
 import entity.event;
 import entity.reservation;
+import interfaces.userInterface;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -22,13 +24,19 @@ import java.util.logging.Logger;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import services.EventService;
 import services.ResService;
+import services.userService;
+import trotirent.Trotirent;
 import utils.DataSource;
+import utils.session;
 
 /**
  * FXML Controller class
@@ -131,7 +139,28 @@ public class AccueilEventController implements Initializable {
             Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
                     }
          }    
-    
+    userInterface fn = new userService();
+    user test = new user();
+    public void logout() throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+        fn.logout();
+
+    }
+     public void ProfileProfile() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+
+    }
+    public void panier() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("temp.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+
+    }
         @FXML
         void pred(ActionEvent event) {
             if (currentIndex > 0) {
@@ -150,7 +179,7 @@ public class AccueilEventController implements Initializable {
         // récupérer l'événement actuellement affiché
         event e = eventsList.get(currentIndex);
         reservation r = new reservation();
-        user u=new user(1, "test"); 
+        user u= session.getUser();
         r.setIdEvent(e);
         r.setIdUser(u); // TODO: remplacer 1 par l'ID de l'utilisateur connecté
         ResService RS = new ResService();

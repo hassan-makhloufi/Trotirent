@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: linear-gradient(to top right,#0FC2C0,#015958);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TempController">
+   <children>
+      <Pane fx:id="pnafficher" layoutX="343.0" layoutY="96.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane layoutX="1080.0" layoutY="-24.0" prefHeight="749.0" prefWidth="200.0" style="-fx-background-color: #679db2;">
+               <children>
+                  <Button layoutX="41.0" layoutY="144.0" mnemonicParsing="false" onAction="#boutique" prefHeight="49.0" prefWidth="119.0" text="Boutique" />
+                  <Button layoutX="42.0" layoutY="235.0" mnemonicParsing="false" onAction="#panier" prefHeight="49.0" prefWidth="119.0" text="Mon panier" />
+               </children>
+            </AnchorPane>
+            <Pane fx:id="pn_boutique" layoutX="1.0" layoutY="-18.0" prefHeight="743.0" prefWidth="1090.0" style="-fx-background-color: #679db2;">
+               <children>
+                  <Label layoutX="51.0" layoutY="46.0" prefHeight="37.0" prefWidth="143.0" text="Boutique">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="52.0" layoutY="94.0" prefHeight="602.0" prefWidth="1011.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane fx:id="grid" layoutX="1.0" layoutY="3.0">
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="30.4" minHeight="10.0" prefHeight="30.4" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="49.60001220703125" minHeight="10.0" prefHeight="30.4" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </Pane>
+            <Pane fx:id="pn_panier" layoutY="-4.0" prefHeight="730.0" prefWidth="1090.0" style="-fx-background-color: linear-gradient(to top right,#0FC2C0,#015958);">
+               <children>
+                  <Label layoutX="51.0" layoutY="41.0" prefHeight="37.0" prefWidth="143.0" text="Mon panier">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="display" layoutX="71.0" layoutY="114.0" prefHeight="459.0" prefWidth="887.0">
+                     <columns>
+                        <TableColumn fx:id="nom" prefWidth="245.0" text="Produit" />
+                        <TableColumn fx:id="prix" prefWidth="291.0" text="Prix unitaire   " />
+                        <TableColumn fx:id="qty" prefWidth="241.0" text="Quantite" />
+                        <TableColumn fx:id="edit" prefWidth="105.0" text="Option" />
+                        <TableColumn fx:id="id" prefWidth="105.0" text="id" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="90.0" layoutY="627.0" mnemonicParsing="false" onAction="#valider" prefHeight="32.0" prefWidth="90.0" text="Valider" />
+                  <TextField fx:id="tf_adresse" layoutX="90.0" layoutY="583.0" prefHeight="26.0" prefWidth="308.0" promptText="entrez votre adresse" style="-fx-background-color: white;" />
+                  <TextField fx:id="tf_message" layoutX="450.0" layoutY="583.0" prefHeight="26.0" prefWidth="308.0" promptText="ecrire un message .. " style="-fx-background-color: white;" />
+                  <Button layoutX="855.0" layoutY="627.0" mnemonicParsing="false" onAction="#rfr" prefHeight="32.0" prefWidth="90.0" text="Refresh" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <HBox alignment="CENTER_LEFT" layoutX="9.0" layoutY="7.0" prefHeight="73.0" prefWidth="1882.0" spacing="20.0" style="-fx-background-color: #679db2;" styleClass="white-background" stylesheets="@../css/styles.css">
+         <children>
+            <Label alignment="CENTER" prefHeight="60.0" prefWidth="143.0" text="Trottirent">
+               <font>
+                  <Font name="Calibri" size="24.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.4277777777777778" centerY="0.5666666666666667" radius="0.5">
+                     <stops>
+                        <Stop color="#000000ea" />
+                        <Stop color="#191246eb" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="43.0" prefWidth="4.0" />
+            <HBox maxHeight="-Infinity" prefHeight="38.0" prefWidth="290.0">
+               <children>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="35.0" prefWidth="290.0" styleClass="round-layout" stylesheets="@../css/styles.css">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/téléchargement.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #679db2;" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+      </HBox>
+      <VBox layoutX="8.0" layoutY="62.0" prefHeight="1029.0" prefWidth="194.0" style="-fx-background-color: #679db2;">
+         <stylesheets>
+            <URL value="@Styles/style.css" />
+            <URL value="@Styles/style.css" />
+         </stylesheets>
+         <children>
+            <Label onMouseClicked="#ProfileProfile" prefHeight="17.0" prefWidth="103.0" text="Profile" />
+            <Pane prefHeight="27.0" prefWidth="194.0">
+               <children>
+                  <Label layoutX="2.0" layoutY="5.0" prefHeight="17.0" prefWidth="103.0" text="Panier" />
+               </children>
+            </Pane>
+            <Label onMouseClicked="#gotoreservation" prefHeight="17.0" prefWidth="103.0" text="Reservation" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Label onMouseClicked="#logout" prefHeight="18.0" prefWidth="151.0" text="Log out" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

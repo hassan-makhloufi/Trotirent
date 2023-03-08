@@ -85,6 +85,12 @@ public class ProfileController implements Initializable {
         Trotirent.primaryStage.setScene(new Scene(root));
         Trotirent.primaryStage.show();
     }
+       public void ProfileProfile() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+
+    }
 
     @FXML
     public void selectMenueItem(MouseEvent event) {
@@ -124,6 +130,7 @@ public class ProfileController implements Initializable {
         Trotirent.primaryStage.show();
 
     }
+    
 
     public void showProfile() {
         String firstName = session.getUser().getFirstname();
@@ -147,6 +154,13 @@ public class ProfileController implements Initializable {
     }
     userInterface fn = new userService();
     user test = new user();
+    
+    public void panier() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("temp.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+
+    }
 
     public void logout() throws IOException {
 
@@ -161,10 +175,8 @@ public class ProfileController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("AccueilEvent.fxml"));
         Trotirent.primaryStage.setScene(new Scene(root));
         Trotirent.primaryStage.show();
-        fn.logout();
-
     }
-
+  
     public void UploadProfilePicture() throws IOException {
 
         FileChooser fileChooser = new FileChooser();

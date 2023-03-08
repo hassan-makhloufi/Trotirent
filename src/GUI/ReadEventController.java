@@ -48,8 +48,10 @@ import java.util.logging.Logger;
 import static javax.print.DocFlavor.URL.PDF;
 //import com.itextpdf.text.com.itextpdf.text.Chunk;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import interfaces.userInterface;
 import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.BLACK;
+import trotirent.Trotirent;
 
 
 
@@ -142,8 +144,27 @@ private static final int IMAGE_HEIGHT = 400;
         }
     });
     } 
-      @FXML
-    void ToAjouter(ActionEvent event) {
+       public void ToAjouter() throws java.io.IOException {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("AjoutEvent.fxml"));
+            /*
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+             */
+            Scene scene = new Scene(fxmlLoader.load(), 800, 550);
+            Stage stage = new Stage();
+            stage.setTitle("Cart Items");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.log(Level.SEVERE, "Failed to create new Window.", e);
+        }
+
+    }
+       
+    /*void ToAjouter(ActionEvent event) {
    try {
                 Parent page1 = FXMLLoader.load(getClass().getResource("AjoutEvent.fxml"));
                 Scene scene = new Scene(page1);
@@ -157,7 +178,7 @@ private static final int IMAGE_HEIGHT = 400;
             } catch (IOException ex) {
                 Logger.getLogger(ReadEventController.class.getName()).log(Level.SEVERE, null, ex);
             }
-    }
+    }*/
      @FXML
     void update(ActionEvent event) {
        if (table.getSelectionModel().getSelectedItem() != null) {
@@ -180,8 +201,25 @@ private static final int IMAGE_HEIGHT = 400;
         
        }
     }
+    userInterface fn = new userService();
+    user test = new user();
     
     
+            public void trotinet() throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("backoffice.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+
+    }
+      public void logout() throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
+        fn.logout();
+
+    }
      @FXML
     void delete(ActionEvent event) {
         if (table.getSelectionModel().getSelectedItem() != null) {
@@ -213,9 +251,27 @@ private static final int IMAGE_HEIGHT = 400;
         
 
     }
-    
-    @FXML
-    void Consulter_reservaion(ActionEvent event) {
+      public void Consulter_reservaion() throws java.io.IOException {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("ReservationCRUD.fxml"));
+            /*
+         * if "fx:controller" is not set in fxml
+         * fxmlLoader.setController(NewWindowController);
+             */
+            Scene scene = new Scene(fxmlLoader.load(), 800, 550);
+            Stage stage = new Stage();
+            stage.setTitle("Cart Items");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.log(Level.SEVERE, "Failed to create new Window.", e);
+        }
+
+    }
+  
+    /*void Consulter_reservaion(ActionEvent event) {
         try {
                 Parent page1 = FXMLLoader.load(getClass().getResource("ReservationCRUD.fxml"));
                 Scene scene = new Scene(page1);
@@ -230,7 +286,7 @@ private static final int IMAGE_HEIGHT = 400;
                 Logger.getLogger(ReadEventController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-    }
+    }*/
      @FXML
     void Contrat(ActionEvent event) {
         

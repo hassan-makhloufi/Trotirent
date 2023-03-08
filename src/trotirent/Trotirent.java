@@ -17,22 +17,24 @@ import services.userService;
  *
  * @author Admin
  */
-public class Trotirent extends Application{
+public class Trotirent extends Application {
+
     public static Stage primaryStage;
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         // Create your JavaFX scene here
-       Trotirent.primaryStage = primaryStage;
+        Trotirent.primaryStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/login.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("../GUI/ReadEvent.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    
+
     public static void main(String[] args) {
-      
+
         // Launch the JavaFX application
         launch(args);
     }
 }
-

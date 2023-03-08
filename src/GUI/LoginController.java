@@ -105,7 +105,7 @@ public class LoginController implements Initializable {
                 alert.showAndWait();
                 session.setUser(null);
             } else if (session.getUser().getRoles().contains("Admin")) {
-                Parent root = FXMLLoader.load(getClass().getResource("userslist.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("ReadEvent.fxml"));
                 Trotirent.primaryStage.setScene(new Scene(root));
                 Trotirent.primaryStage.show();
             } else if (!session.getUser().getRoles().contains("Admin")) {

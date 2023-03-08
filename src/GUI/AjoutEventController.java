@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -27,6 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.EventService;
+import trotirent.Trotirent;
 
 
 
@@ -38,7 +40,8 @@ import services.EventService;
 public class AjoutEventController implements Initializable {
 
     
-   
+   @FXML
+    Button closewindow;
     @FXML
     private DatePicker DateDebut;
 
@@ -87,6 +90,11 @@ public class AjoutEventController implements Initializable {
         PhotoE.setImage(image);
     }
 
+    }
+      private void refreshtables() throws java.io.IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ReadEvent.fxml"));
+        Trotirent.primaryStage.setScene(new Scene(root));
+        Trotirent.primaryStage.show();
     }
     @FXML
     void AjoutEvent(ActionEvent event) throws IOException{
@@ -146,11 +154,9 @@ public class AjoutEventController implements Initializable {
     alert.setContentText("Evenement ajouté avec succès !");
     alert.showAndWait();
 
-    Parent page1 = FXMLLoader.load(getClass().getResource("ReadEvent.fxml"));
-    Scene scene = new Scene(page1);
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(scene);
-    stage.show();
+    this.refreshtables();
+                Stage stage = (Stage) closewindow.getScene().getWindow();
+                stage.close();
 
     }
     

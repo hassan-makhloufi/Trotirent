@@ -71,7 +71,7 @@ String requete="update reservation set idEvent=?, idUser=? where IdRes=?";
 
     @Override
     public List<reservation> readAll() {
- String requete ="SELECT r.idRes, e.idEvent, e.NomEvent, u.idUser, u.lastname, u.firstname \n" +
+ String requete ="SELECT r.idRes, e.idEvent, e.NomEvent, u.id, u.lastname, u.firstname \n" +
     "FROM reservation r \n" +
     "JOIN event e ON r.idEvent=e.idEvent \n" +
     "JOIN user u ON r.idUser=u.id;";
@@ -86,7 +86,7 @@ String requete="update reservation set idEvent=?, idUser=? where IdRes=?";
             
             event evt = new event(idEvent, nomEvent);
             //event evt=new event(idEvent);
-            int idUser = rs.getInt("idUser");
+            int idUser = rs.getInt("id");
             String nomUser = rs.getString("lastname");
             String prenomUser = rs.getString("firstname");
             user usr = new user(idUser, nomUser, prenomUser);
@@ -108,7 +108,7 @@ String requete="update reservation set idEvent=?, idUser=? where IdRes=?";
 
     @Override
     public reservation readById(int id) {
-         String requete ="SELECT r.idRes, e.idEvent, e.NomEvent, u.idUser, u.lastname, u.firstname \n" +
+         String requete ="SELECT r.idRes, e.idEvent, e.NomEvent, u.id, u.lastname, u.firstname \n" +
     "FROM reservation r \n" +
     "JOIN event e ON r.idEvent=e.idEvent \n" +
     "JOIN user u ON r.idUser=u.id WHERE idRes="+id;
@@ -121,7 +121,7 @@ String requete="update reservation set idEvent=?, idUser=? where IdRes=?";
             int idEvent = rs.getInt("idEvent");
             String nomEvent = rs.getString("nomEvent");
             event evt = new event(idEvent, nomEvent);
-            int idUser = rs.getInt("idUser");
+            int idUser = rs.getInt("id");
             String nomUser = rs.getString("lastname");
             String prenomUser = rs.getString("firstname");
             user usr = new user(idUser, nomUser, prenomUser);

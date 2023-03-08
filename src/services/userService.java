@@ -129,7 +129,7 @@ public void createuser(user u) {
                 l.setLastname(rs.getString("lastname"));
                 l.setPhonenumber(rs.getInt("phonenumber"));
                 l.setProfile_picture(rs.getString("profile_picture"));
-                l.setIsbanned(rs.getBoolean("isbanned"));
+                    l.setIsbanned(rs.getBoolean("isbanned"));
                 l.setCountry_code(rs.getString("country_code"));
 
                 li.add(l);
