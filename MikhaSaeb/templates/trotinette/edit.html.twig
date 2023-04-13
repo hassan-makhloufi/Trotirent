@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit Trotinette{% endblock %}
+
+{% block body %}
+    <h1>Edit Trotinette</h1>
+
+    {{ include('trotinette/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_trotinette_index') }}">back to list</a>
+
+    {{ include('trotinette/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}Categories {% endblock %}
+
+{% block body %}
+    <h1>Les Categories Trotinettes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Categorie</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.categorie }}</td>
+               
+            </tr>
+        
+        {% endfor %} 
+        <td>
+                    <a href="{{ path('app_trotinette_index_front') }}">produits</a>
+                    
+                </td>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}Panier index{% endblock %}
+
+{% block body %}
+    <h1>paniers </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Panier</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Qty</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for panier in paniers %}
+            <tr>
+                <td>{{ panier.idPanier }}</td>
+                <td>{{ panier.nom }}</td>
+                <td>{{ panier.prix }}</td>
+                <td>{{ panier.qty }}</td>
+                 <td>
+                    <a href="{{ path('app_panier_edit_front', {'idPanier': panier.idPanier}) }}">edit</a>
+
+            </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+            
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+                    <a href="{{ path('app_commande_new_front') }}"style="color:#ed174a;">Commander</a>
+
+    <a href="{{ path('app_panier_new_front') }}"> new Panier</a>
+{% endblock %}

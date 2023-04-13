@@ -1,0 +1,38 @@
+{% extends 'Front.html.twig' %}
+
+{% block title %}Trotinettes{% endblock %}
+
+{% block body %}
+    <h1>Trotinettes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Marque</th>
+                <th>Energie</th>
+                <th>Autonomie</th>
+                <th>Prix</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trotinette in trotinettes %}
+            <tr>
+                <td>{{ trotinette.marque }}</td>
+                <td>{{ trotinette.energie }}</td>
+                <td>{{ trotinette.autonomie }}</td>
+                <td>{{ trotinette.prix }}</td>
+                <td>{{ trotinette.description }}</td>
+                <td>
+                    <a href="#">Reserver</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
