@@ -1,0 +1,41 @@
+
+	<div class="row mt-2">
+    <div class="col">
+		{% if pageCount > 1 %}
+    <div class="block-27">
+    <ul class="pagination">
+        {% if current > 1 %}
+            <li class="active" >
+                <a href="{{ path(route, query|merge({(pageParameterName): 1})) }}"  >&laquo;</a>
+            </li>
+            <li class="active" >
+                <a href="{{ path(route, query|merge({(pageParameterName): current - 1})) }}"  >&lsaquo;</a>
+            </li>
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <li  >
+                    <a href="{{ path(route, query|merge({(pageParameterName): page})) }}"  >{{ page }}</a>
+                </li>
+            {% else %}
+                <li >
+                    <span  >{{ page }}</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if current < pageCount %}
+            <li class="active" >
+                <a href="{{ path(route, query|merge({(pageParameterName): current + 1})) }}"  >&rsaquo;</a>
+            </li>
+            <li class="active" >
+                <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}"  >&raquo;</a>
+            </li>
+            </ul>
+    </div>
+        {% endif %}
+    
+    </div>
+		</div>
+{% endif %}

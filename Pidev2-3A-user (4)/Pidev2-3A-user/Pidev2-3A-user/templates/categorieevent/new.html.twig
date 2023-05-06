@@ -1,0 +1,14 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}New Categorieevent{% endblock %}
+
+{% block body %}
+ 
+              
+
+    {{ include('categorieevent/_form.html.twig') }}
+
+    <a href="{{ path('app_categorieevent_index') }}">back to list</a>
+    
+          
+{% endblock %}

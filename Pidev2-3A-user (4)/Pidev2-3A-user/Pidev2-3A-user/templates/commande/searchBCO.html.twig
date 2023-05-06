@@ -1,0 +1,51 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block body %}
+    <h1>Commande index</h1>
+     <form method="post" action="{{ path('commande_rechercheCB') }}">
+                                <input type="text" name="search" class="btn btn-outline-info">
+                                <input type="submit" value="{% trans %}Recherche{% endtrans %}" class="btn btn-info">
+                </form>
+                 <div style="margin-law:20px;">
+        <div class="row">
+    <div class="col">
+    <div class="col text-right">
+        <a class="btn btn-info mr-3" href="{{ path('order_By_prix')}}">Trier par Prix</a>
+        
+    </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdCommande</th>
+                <th>PrixTotale</th>
+                <th>Produits</th>
+                <th>Adresse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.idCommande }}</td>
+                <td>{{ commande.prixTotale }} TD</td>
+                <td>{{ commande.produits }}</td>
+                <td>{{ commande.adresse }}</td>
+                <td>
+                    <a href="#">show</a>
+                    <a href="#">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+
+{% endblock %}

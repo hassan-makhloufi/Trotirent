@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>List of Commandes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #ffffff;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            
+        }
+        th {
+            background-color: #ffffff;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+        
+    </style>
+</head>
+<body>
+ 
+<br>
+    <h1 style="text-align: center;">List of Commandes</h1>
+    <table border="2">
+        <thead>
+            <tr>
+                
+                <th style="color:#009CFF;">ID</th>
+                <th style="color:#009CFF;">Prix Totale</th>
+                <th style="color:#009CFF;">Produits</th>
+                <th style="color:#009CFF;">Adresse</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for commande in commandes %}
+            <tr>
+                
+                <td>{{ commande.idCommande }}</td>
+                <td>{{ commande.prixTotale }}</td>
+                <td>{{ commande.produits }}</td>
+                <td>{{ commande.adresse }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

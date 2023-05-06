@@ -1,0 +1,16 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% extends 'baseBack.html.twig' %}
+
+<<<<<<< HEAD
+=======
+{% block title %}New Reservation{% endblock %}
+>>>>>>> 8c2b16d22553e99e279fd8c336e24c3fa645c3d7
+
+{% block body %}
+    <h1>Create new Reservation</h1>
+
+    {{ include('reservation/_form.html.twig') }}
+
+    <a href="{{ path('app_reservation_index') }}">back to list</a>
+{% endblock %}

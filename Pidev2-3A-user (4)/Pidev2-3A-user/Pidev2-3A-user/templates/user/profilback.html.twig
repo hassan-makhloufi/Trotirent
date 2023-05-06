@@ -1,0 +1,56 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}TunMix!!!
+{% endblock %}
+
+{% block body %}
+<h1>test</h1>
+
+ <div class"grix xs4 container" >
+{% for message in app.flashes('message') %}
+<div class="col-xs4">
+<div class="p-3 my-2 rounded-2 success"> {{message}}</div>
+</div>
+</div>
+{% endfor %} 
+<div class="grix xs4 container">
+<div class="col-xs4">
+<h1>Profil de {{user.nomuser}} {{user.prenomuser}} <img src="/uploads/{{ user.Photo }}"  width="150" height="150" alt="" class="avatar"  >  </h1>
+</div>
+<div class="col-xs1">Nom :</div>
+<div class="col-xs3">{{user.nomuser}}</div>
+
+<div class="col-xs1">Prenom :</div>
+<div class="col-xs3">{{user.prenomuser}}</div>
+<div class="col-xs1">Email :</div>
+<div class="col-xs3">{{user.email}}</div>
+
+<div class="col-xs1">numtel :</div>
+<div class="col-xs3">{{user.numtel}}</div>
+
+<div class="col-xs1">typeUser :</div>
+<div class="col-xs3">{{user.typeUser}}</div>
+
+<br>
+<br>
+<div class="col-xs4"> 
+ <a href="{{ path('editprofile', {'iduser': user.iduser}) }}" style="color: red;">Modifier le profil</a>
+ <br>
+ <a href="
+ {{ path('editmdp', {'iduser': user.iduser}) }}" style="color: red;">Modifier Mot de passe</a>
+ <a href="
+ {{ path('app_user_index') }}" style="color: red;">BackOffice</a>
+
+
+
+
+</div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+

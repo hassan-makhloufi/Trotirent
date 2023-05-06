@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+      
+
+     <!-- CSS -->
+     <style>
+     #localisationEvent { 
+        height: 400px;
+         }
+</style>
+  
+  <section class="ftco-section ftco-degree-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 ftco-animate">
+        <div id="localisationEvent" class="bg-white"></div>
+      </div>
+      <div class="col-lg-4 ftco-animate">
+        <center>
+          <h2 class="mb-3">{{ event.nomevent }}</h2>
+        </center>
+        <div><a href="#">Début évent  :             {{ event.datedebut ? event.datedebut|date('Y-m-d') : '' }}</a></div>
+        <div><a href="#">Fin évent  : {{ event.datefin ? event.datefin|date('Y-m-d') : '' }}</a></div>
+        <p>Horaire   :   {{ event.heureevent }}</p>
+        <p>Localisation   :  {{ event.Localisation }}</p>
+        <p>{{ event.description }}</p>
+        <div>
+          <p>Le prix du ticket est : {{ event.prix }}</p>
+        </div> 
+        
+      </div>
+      <div class="col-lg-4 ftco-animate">
+        <img src="{{ asset('uploads/events/' ~ event.photoe) }}" alt="{{ event.nomevent }}" style="max-width: 400px;">
+      </div>
+    </div>
+    <center><p>
+          <a href="{{ path('app_reservation_new', {'idevent': event.idevent}) }}" class="btn btn-primary py-2 px-3">Réserver</a>
+        </p></center>
+        {% for flash_message in app.session.flashbag.get('notice') %}
+          <div class="alert alert-success">
+            {{ flash_message }}
+          </div>
+        {% endfor %}
+  </div>
+</section>
+
+
+   
+   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+
+     <script>
+     //on initialise la carte 
+     var carte = L.map('localisationEvent').setView([36.81897, 10.16579], 13);
+
+
+    //on charge les "tuiles"
+   L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                // Il est toujours bien de laisser le lien vers la source des données
+                attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(carte);
+var latlng = "{{ event.localisation }}"; 
+var latlngArray = latlng.split(","); 
+var lat = parseFloat(latlngArray[0]); 
+var lng = parseFloat(latlngArray[1]); 
+
+
+var position = L.latLng(lat, lng);
+var marker = L.marker(position).addTo(carte);
+</script>
+
+   
+   
+{% endblock %}

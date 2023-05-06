@@ -1,0 +1,33 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Categorie {% endblock %}
+
+{% block body %}
+   
+           <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th>Idcat</th>
+                <td>{{ categorieevent.idcat }}</td>
+            </tr>
+            <tr>
+                <th>Nomcat</th>
+                <td>{{ categorieevent.nomcat }}</td>
+            </tr>
+        </tbody>
+    </table>
+            </div>
+
+            </div>
+        </div>  
+
+    <a href="{{ path('app_categorieevent_index') }}">back to list</a>
+
+    <a href="{{ path('app_categorieevent_edit', {'idcat': categorieevent.idcat}) }}">edit</a>
+
+    {{ include('categorieevent/_delete_form.html.twig') }}
+    
+{% endblock %}

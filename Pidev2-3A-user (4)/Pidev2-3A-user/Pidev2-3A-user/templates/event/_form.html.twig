@@ -1,0 +1,68 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+<div style="display: flex; justify-content: center;">
+    {{ form_start(form, {'attr': {'style': 'margin: auto; max-width: 600px;'}}) }}
+   
+    <!-- Ajoutez un élément HTML pour la carte -->
+    <div id="localisationEvent" ></div>
+
+    <!-- Ajoutez un champ caché pour stocker les coordonnées de la localisation -->
+    {{ form_widget(form.localisation) }}
+  
+  
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>
+
+<!-- Ajoutez les bibliothèques Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+      
+
+     <!-- CSS -->
+     <style>
+     #localisationEvent { 
+        height: 400px;
+         }
+</style>
+ <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+<script>
+    // Initialisez la carte
+     var carte = L.map('localisationEvent').setView([36.81897, 10.16579], 13);
+
+    //on charge les "tuiles"
+   L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                // Il est toujours bien de laisser le lien vers la source des données
+                attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(carte);
+
+    // Ajoutez un marqueur à la carte
+       // var marqueur = L.marker([36.8139969, 10.1363018]).addTo(carte);
+
+
+
+    // Lorsqu'un utilisateur clique sur la carte, mettez à jour la valeur du champ caché
+   
+
+
+    var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(carte);
+
+    document.getElementById('{{ form.localisation.vars.id }}').value = e.latlng.lat + ',' + e.latlng.lng;
+    L.marker(e.latlng).addTo(carte);
+
+
+}
+
+carte.on('click', onMapClick);
+
+</script>

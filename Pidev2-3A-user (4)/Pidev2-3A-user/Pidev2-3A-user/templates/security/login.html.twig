@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+{% block topheader %}
+
+
+{% endblock %}
+
+{% block body %}
+
+<form method="post">
+ <div class="imgcontainer">
+     
+      <!-- Imaginez que votre image est stockée dans le dossier "/images" -->
+
+
+
+
+    </div>
+    <div class="container">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            vous etes connecter comme : {{ app.user.nomuser }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div>
+    <div style="width: 200px; height: 200px; border-radius: 80%; overflow: hidden;">
+    </div>
+    <center><form>
+      <h1 class="h3 mb-3 font-weight-normal">Se Connecter</h1>
+      <label for="inputEmail">Email</label><h2>
+        <input type="text" value="{{ last_username }}" name="email" id="inputEmail" class="uname" autocomplete="email" required autofocus>
+      </h2>
+      <label for="inputPassword">Mot de Passe</label><h2>
+        <input type="password" name="password" id="inputPassword" class="psw" autocomplete="current-password" required>
+      </h2>
+       <h4><button type="submit" class="btn btn-primary py-2 px-3">Connecter</button></h4>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+       <a href="{{ path('app_user_inscri') }}" class="btn btn-warning" class="btn btn-primary py-2 px-3"> S'incrire?</a>
+        <a href="user/email/a" class="btn btn-danger" sclass="btn btn-primary py-2 px-3">  Mdp oubliée?</a>
+    </form></center>
+  </div>
+</div>
+
+ </div>
+          
+          
+
+        </div>
+      </div>
+    </section> <!-- .section -->
+
+
+{% endblock %}

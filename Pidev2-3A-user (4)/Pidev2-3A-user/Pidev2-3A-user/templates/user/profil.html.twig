@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TunMix!!!
+{% endblock %}
+
+
+{% block titlePage %}
+	<p class="breadcrumbs">
+		<span class="mr-2">
+			<a href="#">Home</a>
+		</span>
+		<span>
+			<a href="{{ path('showprofile', {'iduser': app.user.idUser}) }}">Profil</a>
+		</span>
+	</p>
+	<h1 class="mb-0 bread">Profil</h1>
+{% endblock %}
+
+
+{% block body %}
+ <div class"grix xs4 container" >
+{% for message in app.flashes('message') %}
+<div class="col-xs4">
+<div class="p-3 my-2 rounded-2 success"> {{message}}</div>
+</div>
+</div>
+{% endfor %} 
+<div class="grix xs4 container">
+<div class="col-xs4">
+<h1>Profil de {{user.nomuser}} {{user.prenomuser}} <img src="/uploads/{{ user.Photo }}"  width="150" height="150" alt="" class="avatar"  >  </h1>
+</div>
+<div class="col-xs1">Nom :</div>
+<div class="col-xs3">{{user.nomuser}}</div>
+
+<div class="col-xs1">Prenom :</div>
+<div class="col-xs3">{{user.prenomuser}}</div>
+<div class="col-xs1">Email :</div>
+<div class="col-xs3">{{user.email}}</div>
+
+<div class="col-xs1">numtel :</div>
+<div class="col-xs3">{{user.numtel}}</div>
+
+<div class="col-xs1">typeUser :</div>
+<div class="col-xs3">{{user.typeUser}}</div>
+    <!-- Affichage du code QR -->
+<img src="{{ qrCodeUri }}" alt="QR Code" />
+
+<br>
+<br>
+<div class="col-xs4">
+ <a href="{{ path('editprofile', {'iduser': user.iduser}) }}" style="color: red;">Modifier le profil</a>
+ <br>
+ <a href="
+ {{ path('editmdp', {'iduser': user.iduser}) }}" style="color: red;">Modifier Mot de passe</a>
+<center>
+<a href="
+ {{ path('app_user_home') }}" style="color: red;">Home</a>
+
+</center>
+
+
+
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<script>
+
+
+public function qrcode($user)
+{
+    // $url = 'https://www.google.com/search?q=';
+
+    $objDateTime = new \DateTime('NOW');
+    $dateString = $objDateTime->format('d-m-Y H:i:s');
+
+    $path = dirname(__DIR__, 2).'/public/uploads/images';
+
+    $qrContent = "Id: ".$user->getIduser().", Nom: ".$user->getNomuser();
+
+    // set qrcode
+    $result = $this->builder
+        ->data($qrContent)
+        ->encoding(new Encoding('UTF-8'))
+        ->errorCorrectionLevel(new ErrorCorrectionLevelHigh())
+        ->size(400)
+        ->margin(10)
+        ->labelText($dateString)
+        ->labelAlignment(new LabelAlignmentCenter())
+        ->labelMargin(new Margin(15, 5, 5, 5))
+//           ->logoPath($path.'/img/logo.png')
+//            ->logoResizeToWidth('100')
+//            ->logoResizeToHeight('100')
+        ->backgroundColor(new Color(221, 158, 3))
+        ->build()
+    ;
+        
+    //generate name
+    $namePng = uniqid('', '') . '.png';
+
+    //Save img png
+    $result->saveToFile($path.'/qr-code/'.$namePng);
+
+    return $result->getDataUri();
+}
+
+
+</script>
+{% endblock %}
+

@@ -1,0 +1,66 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Statistiques des réservations{% endblock %}
+
+{% block body %}
+<head>
+    <style>
+        #myChart {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+ <table>
+    <thead>
+        <tr>
+            <th>Nom de l'événement</th>
+            <th>Nombre de réservations</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in 0..(eventNames|length - 1) %}
+            <tr>
+                <td>{{ eventNames[i] }}</td>
+                <td>{{ numReservations[i] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<div>
+ <center> <canvas id="myChart" style="width: 300px; height: 300px !important;" ></canvas></center>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+var eventNamesN = {{ eventNames|json_encode|raw }};  //json :est un format léger d'échange de données
+var numReservations = {{ numReservations|json_encode|raw }};
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: eventNamesN,
+      datasets: [{
+        label: 'Nombre de réservation',
+        data: numReservations,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+  
+
+  
+{% endblock %}

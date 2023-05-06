@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categories {% endblock %}
+
+{% block body %}
+<div class="form-container" style="border: 1px solid #ccc; padding: 200px;">
+
+    <h1>Les Categories Trotinettes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th >Categorie</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.categorie }}</td>
+               
+            </tr>
+         <td>
+                    <a href="{{ path('app_trotinette_index_front', {'id': categorie.id}) }}">produits</a>
+                    
+                </td>
+        {% endfor %} 
+       
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

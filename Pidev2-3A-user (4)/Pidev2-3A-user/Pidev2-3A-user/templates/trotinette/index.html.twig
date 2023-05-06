@@ -1,0 +1,63 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Trotinette index{% endblock %}
+
+{% block body %}
+    <h1>Trotinette index</h1>
+    
+     <form method="post" action="{{ path('trotinette_rechercheCB') }}">
+                                <input type="text" name="search" class="btn btn-outline-info">
+                                <input type="submit" value="{% trans %}Recherche{% endtrans %}" class="btn btn-info">
+                </form>
+                 <div style="margin-law:20px;">
+        <div class="row">
+    <div class="col">
+    <div class="col text-right">
+        <a class="btn btn-info mr-3" href="{{ path('order_By_prix')}}">Trier par Prix</a>
+        
+    </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdTrot</th>
+                <th>Image</th>
+                <th>nom</th>
+                <th>Marque</th>
+                <th>Energie</th>
+                <th>Autonomie</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for trotinette in trotinettes %}
+            <tr>
+                <td>{{ trotinette.idTrot }}</td>
+                <td><img src="{{ asset('uploads/' ~trotinette.image) }}" style=" width:60px; height:50px; " alt=""/></td>
+                <td>{{ trotinette.nom }}</td>
+                <td>{{ trotinette.marque }}</td>
+                <td>{{ trotinette.energie }}</td>
+                <td>{{ trotinette.autonomie }}</td>
+                <td>{{ trotinette.prix }} DT</td>
+                <td>{{ trotinette.description }}</td>
+                <td>
+                    <a href="{{ path('app_trotinette_show', {'idTrot': trotinette.idTrot}) }}">show</a>
+                    <a href="{{ path('app_trotinette_edit', {'idTrot': trotinette.idTrot}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_trotinette_new') }}">Create new</a>
+    <div style="margin-left:1000px;">
+            <a class="btn btn-info" href="{{path('generator_serviceT')}}"> Exporter PDF </a>
+            <a class="btn btn-info" href="{{path('statsE')}}"> statistique </a>
+         </div>
+{% endblock %}

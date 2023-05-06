@@ -1,0 +1,4 @@
+framework:
+    mailer:
+        dsn: 'gmail+smtp://sassi.ali@esprit.tn:certified201@default'
+        message_bus:  false

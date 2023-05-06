@@ -1,0 +1,67 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+
+
+ <div class="card">
+ <div class="card-body">
+ <div class="table-responsive" >
+    <table class="table" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Iduser</th>
+                <th>Nomuser</th>
+                <th>Prenomuser</th>
+                <th>Pwd</th>
+                <th>Email</th>
+                <th>Numtel</th>
+                <th>Typeuser</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in pagination %}
+            <tr>
+                <td>{{ user.iduser }}</td>
+                <td>{{ user.nomuser }}</td>
+                <td>{{ user.prenomuser }}</td>
+                <td>{{ user.pwd }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.numtel }}</td>
+                <td>
+                   {{ user.typeuser }}
+                </td>
+                <td><img src="/uploads/{{ user.photo }}" alt="Photo" width="100" height="100"></td>
+                <td>
+                    <a href="{{ path('app_user_show', {'iduser': user.iduser}) }}">show</a>
+                    <a href="{{ path('app_user_edit', {'iduser': user.iduser}) }}">edit</a>
+                </td>
+               
+ 
+                <td><a href="/user/{{user.iduser}}/enable" class="btn btn-success" >Activer</a></td>
+                          <td><a href="/user/{{user.iduser}}/disable" class="btn btn-danger" >Bloquer</a></td>
+                          </tr>
+            </tr>
+        
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('generate_pdf') }}" target="_blank">PDF</a>
+    <div class="pagination">
+    {{ knp_pagination_render(pagination, 'pagination.html.twig') }}
+</div>
+                     </div>
+
+                            </div>
+                        
+
+ <a href="{{ path('app_user_new') }}" style="color: red;">Create new</a>
+
+       
+{% endblock %}

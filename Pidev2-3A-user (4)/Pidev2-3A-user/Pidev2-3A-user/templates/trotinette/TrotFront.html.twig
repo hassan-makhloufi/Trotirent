@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Produits{% endblock %}
+
+{% block body %}
+ <!-- Service Start -->
+ 
+    <div class="service">
+  <div class="container">
+  <div class="form-container" style="border: 1px solid #ccc; padding: 100px;">
+
+    <div class="section-header text-center">
+      <h1 style="margin-bottom:40px;margin-top:-170px; color:#0000FF;">Les Trotinettes</h1>
+      <div class="sharethis-inline-share-buttons"></div>
+      
+    </div>
+   
+    <div class="row">
+      {% for trotinette in trotinettes %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-item">
+          <img src="{{ asset('uploads/' ~trotinette.image) }}" style=" width:360px; height:250px; " alt="">
+          <p><strong style="color:#0000FF;">Nom:</strong> {{ trotinette.nom }}</p>
+          <p><strong style="color:#0000FF;">Marque:</strong> {{ trotinette.marque }}</p>          
+          <p><strong style="color:#0000FF;">Energie:</strong> {{ trotinette.energie}}</p>
+          <p><strong style="color:#0000FF;">Autonomie:</strong> {{ trotinette.autonomie}}</p>
+          <p><strong style="color:#0000FF;">Prix:</strong> {{ trotinette.prix}} DT</p>
+          <p><strong style="color:#0000FF;">Description:</strong> {{ trotinette.description }}</p>
+          <center> <a href="{{ path('app_trotinette_showF', {'idTrot': trotinette.idTrot}) }}" class="btn btn-primary">More Details</a></center>
+         <form action="{{ path('add_to_cart') }}" method="POST">
+            <input type="hidden" name="trotinette_id" value="{{ trotinette.idTrot }}" />
+           {% if app.user %}
+    <input type="submit" class="nav-link" value="Ajouter au panier" />
+{% else %}
+    <li class="nav-item cta cta-colored">
+        <a href="{{ path('app_login') }}" class="nav-link"> Ajouter au Panier</a>
+    </li>
+{% endif %}
+
+        </form>
+         <br>
+        </div>
+      </div>
+      {% else %}
+      <div class="col">
+        <p class="text-center">Aucun événement trouvé.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+    <!-- Service End -->
+    </div>
+    {{ knp_pagination_render(trotinettes) }}
+
+{% endblock %}

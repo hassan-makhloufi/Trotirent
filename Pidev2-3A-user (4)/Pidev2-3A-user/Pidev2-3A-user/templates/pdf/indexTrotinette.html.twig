@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>List of trotinettes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #ffffff;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            
+        }
+        th {
+            background-color: #ffffff;
+        }
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+        
+    </style>
+</head>
+<body>
+ 
+<br>
+    <h1 style="text-align: center;">List of trotinettes</h1>
+    <table border="2">
+        <thead>
+            <tr>
+                
+                <th style="color:#009CFF;">Image</th>
+                <th style="color:#009CFF;">Marque</th>
+                <th style="color:#009CFF;">Energie</th>
+                <th style="color:#009CFF;">Autonomie</th>
+                <th style="color:#009CFF;">Prix</th>
+                <th style="color:#009CFF;">Description</th>
+                <th style="color:#009CFF;">Categorie</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for trotinette in trotinettes %}
+            <tr>
+                
+                 <td><img src="{{ asset('uploads/' ~trotinette.image) }}" style=" width:89px; height:75px; " alt=""/></td>
+                <td>{{ trotinette.marque  }}</td>
+                <td>{{ trotinette.energie  }}</td>
+                <td>{{ trotinette.autonomie  }}</td>
+                <td>{{ trotinette.prix  }}</td>
+                <td>{{ trotinette.description }}</td>
+                <td>{{ trotinette.idTrot }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

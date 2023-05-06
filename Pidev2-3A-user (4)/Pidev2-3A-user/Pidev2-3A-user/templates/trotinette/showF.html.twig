@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Produits{% endblock %}
+
+{% block body %}
+ <!-- Service Start -->
+ 
+ 
+  <div class="form-container" style="border: 1px solid #ccc; padding: 100px;">
+
+    
+   
+    <div class="row">
+      
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="service-item">
+          <img src="{{ asset('uploads/' ~trotinette.image) }}" style=" width:360px; height:250px; " alt="">
+          <p><strong style="color:#0000FF;">Nom:</strong> {{ trotinette.nom }}</p>
+          <p><strong style="color:#0000FF;">Marque:</strong> {{ trotinette.marque }}</p>          
+          <p><strong style="color:#0000FF;">Energie:</strong> {{ trotinette.energie}}</p>
+          <p><strong style="color:#0000FF;">Autonomie:</strong> {{ trotinette.autonomie}}</p>
+          <p><strong style="color:#0000FF;">Prix:</strong> {{ trotinette.prix}} DT</p>
+          <p><strong style="color:#0000FF;">Description:</strong> {{ trotinette.description }}</p>
+          <center> <i class="lar la-star" data-value="1" >&#9733;</i>
+                    <i class="lar la-star" data-value="2" >&#9733;</i>
+                    <i class="lar la-star" data-value="3">&#9733;</i>
+                    <i class="lar la-star" data-value="4" >&#9733;</i>
+                    <i class="lar la-star" data-value="5">&#9733;</i>
+                 <input type="hidden" name="note" id="note" value="0"></center>
+         <form action="{{ path('add_to_cart') }}" method="POST">
+            <input type="hidden" name="trotinette_id" value="{{ trotinette.idTrot }}" />
+            <input type="submit" value="Ajouter au panier" />
+            </form>
+            <br>
+        </div>
+      </div>
+      </div>
+    
+
+
+    <!-- Service End -->
+    </div>
+
+{% endblock %}

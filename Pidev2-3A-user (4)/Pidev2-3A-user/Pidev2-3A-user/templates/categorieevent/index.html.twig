@@ -1,0 +1,45 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Categorieevent index{% endblock %}
+
+{% block body %}
+  
+    <a href="{{ path('app_categorieevent_new') }}">Ajouter une nouvelle catégorie</a>
+
+
+           <!--table begin-->
+                      <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="zero_config" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Idcat</th>
+                <th>Nomcat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorieevent in categorieevents %}
+            <tr>
+                <td>{{ categorieevent.idcat }}</td>
+                <td>{{ categorieevent.nomcat }}</td>
+                <td>
+                    <a href="{{ path('app_categorieevent_show', {'idcat': categorieevent.idcat}) }}">show</a>
+                    <a href="{{ path('app_categorieevent_edit', {'idcat': categorieevent.idcat}) }}">edit</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+                </table>
+                </div>
+
+            </div>
+        </div>  
+              
+{% endblock %}

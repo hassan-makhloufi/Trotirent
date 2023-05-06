@@ -1,0 +1,41 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Panier index{% endblock %}
+
+{% block body %}
+    <h1>Panier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdPanier</th>
+                <th>Nom</th>
+                <th>image</th>
+                <th>Prix</th>
+                <th>Qty</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for panier in paniers %}
+            <tr>
+                <td>{{ panier.idPanier }}</td>
+                <td>{{ panier.nom }}</td>
+                <td><img src="{{ asset('uploads/' ~panier.image) }}" style=" width:60px; height:50px; " alt=""/></td>
+                <td>{{ panier.prix }}</td>
+                <td>{{ panier.qty }}</td>
+                <td>
+                    <a href="#">show</a>
+                    <a href="#">edit</a>
+                    <a href="#"style="color:#ed174a;">Commander</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

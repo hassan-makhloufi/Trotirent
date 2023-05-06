@@ -1,0 +1,14 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}New Trotinette{% endblock %}
+
+{% block body %}
+<div class="form-container" style="border: 1px solid #ccc; padding: 200px;">
+
+    <h1>Create new Trotinette</h1>
+
+    {{ include('trotinette/_form.html.twig') }}
+
+    <a href="{{ path('app_trotinette_index') }}">back to list</a>
+    </div>
+{% endblock %}

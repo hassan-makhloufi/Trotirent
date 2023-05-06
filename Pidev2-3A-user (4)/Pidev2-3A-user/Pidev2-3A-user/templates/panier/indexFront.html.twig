@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Produits au panier{% endblock %}
+
+{% block body %}
+ <!-- Service Start -->
+ 
+    <div class="service">
+        <div class="container">
+            <div class="form-container" style="border: 1px solid #ccc; padding: 100px;">
+
+                <div class="section-header text-center">
+                    <h1 style="margin-bottom:40px;margin-top:-170px; color:#0000FF;">Votre Panier</h1>
+                    <div class="sharethis-inline-share-buttons"></div>
+                </div>
+
+                <div class="row -pbm">
+                    {% for panier in paniers %}
+                    <div class="col-md-4">
+                        <div class="service-item">
+                            <img src="{{ asset('uploads/' ~panier.image) }}" style="width:50%; height:auto;" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="service-item">
+                            <h3><strong >Nom:</strong> {{ panier.nom }}</h3> 
+                            <p><strong>Quantity:</strong> {{ panier.qty}}</p>
+                            <div class="sd">
+                                <div class="prc"> <p><strong >Prix:</strong> {{ panier.prix}} TD</p> </div>
+                            </div>
+                            <footer class="bt">
+                                <a href="{{ path('app_panier_edit_front', {'idPanier': panier.idPanier}) }}" class="btn btn-primary">Edit</a>
+                                <a href="{{ path('app_panier_deleteF', {'idPanier': panier.idPanier}) }}" class="btn btn-danger">Delete</a>
+                            </footer>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col">
+                        <p class="text-center">Aucun Produit trouvé au votre panier.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: right;">
+        <a href="{{ path('app_commande_new_front') }}" class="btn btn-primary" float: right;>Commander</a>
+    </div>
+    <br>
+    <br>
+{% endblock %}

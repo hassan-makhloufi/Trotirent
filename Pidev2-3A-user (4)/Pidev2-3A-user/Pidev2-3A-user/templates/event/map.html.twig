@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<head>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+      
+
+     <!-- CSS -->
+     <style>
+     #localisationEvent { 
+        height: 400px;
+         }
+</style>
+</head>
+
+<body>
+ <div id="localisationEvent"></div>
+
+
+
+<!--js-->
+ <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+     <script>
+     //on initialise la carte 
+     var carte = L.map('localisationEvent').setView([36.81897, 10.16579], 13);
+
+
+    //on charge les "tuiles"
+   L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                // Il est toujours bien de laisser le lien vers la source des données
+                attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(carte);
+
+
+
+        ///Marquer une position
+        var marqueur = L.marker([36.8139969, 10.1363018]).addTo(carte);
+        marqueur.bindPopup("<<p>bardo</p>>");
+
+        
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(carte);
+}
+
+carte.on('click', onMapClick);
+
+     </script>
+     <script>
+     
+     </script>
+</body>
+
+{% endblock %}

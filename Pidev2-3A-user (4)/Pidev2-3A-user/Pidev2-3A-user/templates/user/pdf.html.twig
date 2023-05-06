@@ -1,0 +1,30 @@
+<h1>__________________________________________________________________________________________</h1>
+<br><br>
+<table border=1>
+    <thead>
+        <tr>
+            <th>Iduser</th>
+            <th>Nomuser</th>
+            <th>Prenomuser</th>
+            
+            <th>Email</th>
+            <th>Numtel</th>
+            <th>Typeuser</th>
+            <th>Photo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.iduser }}</td>
+                <td>{{ user.nomuser }}</td>
+                <td>{{ user.prenomuser }}</td>
+                
+                <td>{{ user.email }}</td>
+                <td>{{ user.numtel }}</td>
+                <td>{{ user.typeuser }}</td>
+                <td><img src="/uploads/{{ user.photo }}" alt="Photo" width="100" height="100"></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Event index
+{% endblock %}
+
+
+{% block body %}
+	<style>
+		.pagination {
+			justify-content: center;
+		}
+	</style>
+
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="d-flex justify-content-end mb-3">
+
+
+				<div class="ms-3">
+				</div>
+				<div class="ms-3">
+				</div>
+
+
+			</div>
+
+			<section class="ftco-section ftco-degree-bg">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-lg-8 order-lg-last ftco-animate">
+							<div
+								class="row">
+								<!---->
+								{% for event in pagination %}
+									<div class="col-md-12 d-flex ftco-animate">
+										<div class="blog-entry align-self-stretch d-md-flex">
+											<a href="{{ path('app_event_show', {'idevent': event.idevent}) }}" class="block-20" style="background-image: url('{{ asset('uploads/events/' ~ event.photoe) }}');"></a>
+											<div class="text d-block pl-md-4">
+												<div class="meta mb-3">
+													<div>
+														<a href="#">{{ event.datedebut ? event.datedebut|date('Y-m-d') : '' }}</a>
+													</div>
+													<div>
+														<a href="#">{{ event.datefin ? event.datefin|date('Y-m-d') : '' }}</a>
+													</div>
+													<div>
+														<a href="#">{{ event.localisation }}</a>
+													</div>
+													<div>
+														<a href="#" class="meta-chat">
+															{{event.heureevent}}</a>
+													</div>
+												</div>
+												<h3 class="heading">
+													<a href="#">{{ event.nomevent }}</a>
+												</h3>
+												<p>{{ event.description }}</p>
+
+												<p>
+													<a href="{{ path('app_event_show', {'idevent': event.idevent}) }} " class="btn btn-primary py-2 px-3">show</a>
+												</p>
+											</p>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+
+
+						</div>
+
+						<center>
+							<div class="pagination">
+								{{ knp_pagination_render(pagination, 'paginationEvent.html.twig') }}
+							</div>
+
+						</center>
+
+
+					</div>
+					<!-- .col-md-8 -->
+
+					<div class="col-lg-4 sidebar ftco-animate">
+						<div class="sidebar-box">
+							<form class="input-group" method="get" action="{{ path('event_search') }}">
+								<div class="form-group">
+									<span class="icon ion-ios-search"></span>
+									<input
+									type="text" class="form-control" name="search" placeholder="Rechercher..">
+								</div>
+							</form>
+						</div>
+						<div class="sidebar-box ftco-animate">
+							<h3 class="heading">Categories</h3>
+							<ul class="categories">
+							 {% for categorieevent in categorieevents %}
+								<li>
+									<a href="{{ path('event_category', { 'id': categorieevent.idcat }) }}">{{ categorieevent.nomcat }}
+										<span></span>
+									</a>
+								</li>
+								
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="sidebar-box ftco-animate">
+							<h3 class="heading">Trier selon :</h3>
+							<div class="tagcloud">
+								<a href="{{ path('app_event_index', {'sort': 'datedebut'}) }}" class="tag-cloud-link">Trier par date le plus proche</a>
+								<a href="{{ path('app_event_index', {'sort': 'prix'}) }}" class="tag-cloud-link">Trier par prix event</a>
+
+							</div>
+						</div>
+						
+
+
+						
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- .section -->
+
+
+	{% endblock %}
